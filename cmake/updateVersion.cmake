@@ -26,7 +26,7 @@ file(STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/include/inba/version.hpp INBA_NEW_VERSI
 # If the new version.hpp is materially different from the one in the source
 # directory, update it, commit, and tag.
 if(NOT INBA_NEW_VERSION_HPP STREQUAL INBA_OLD_VERSION_HPP)
-  # Check that doc/release_notes.md and Version.cmake are the only changed file:
+  # Check that docs/release_notes.md and Version.cmake are the only changed file:
   execute_process(
     COMMAND ${GIT_EXECUTABLE} -C "${CMAKE_CURRENT_SOURCE_DIR}" status --porcelain -uno
     OUTPUT_VARIABLE INBA_GIT_STATUS
@@ -36,7 +36,7 @@ if(NOT INBA_NEW_VERSION_HPP STREQUAL INBA_OLD_VERSION_HPP)
     # or that there's non change at all because there's no commit yet
   else()
     string(REPLACE "\n" ";"  INBA_GIT_STATUS ${INBA_GIT_STATUS})
-    if (NOT "x${INBA_GIT_STATUS}" STREQUAL "x M Version.cmake; M doc/release_notes.md")
+    if (NOT "x${INBA_GIT_STATUS}" STREQUAL "x M Version.cmake; M docs/release_notes.md")
       message(FATAL_ERROR "Cannot update version.hpp: the source directory has a dirty status")
 	  return()
     endif()
