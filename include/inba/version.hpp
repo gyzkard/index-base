@@ -1,0 +1,22 @@
+// semantic versioned; see https://semver.org/
+
+#ifndef INCLUDED_INBA_VERSION
+#define INCLUDED_INBA_VERSION
+
+#define INBA_VERSION_MAJOR 0
+#define INBA_VERSION_MINOR 1
+#define INBA_VERSION_PATCHLEVEL 0
+#define INBA_VERSION_PRERELEASE_ID
+#define INBA_VERSION_BUILD_METADATA
+
+#define INBA_VERSION_NUMBER (INBA_VERSION_MAJOR * 10000 + INBA_VERSION_MINOR * 100 + INBA_VERSION_PATCHLEVEL)
+
+#define INBA_STRINGIFY_VALUE(value_) INBA_STRINGIFY(value_)
+#define INBA_STRINGIFY(value_) #value_
+
+#define INBA_VERSION_VERSION_C                                                                     \
+    INBA_STRINGIFY_VALUE(INBA_VERSION_MAJOR)                                                       \
+    "." INBA_STRINGIFY_VALUE(INBA_VERSION_MINOR) "." INBA_STRINGIFY_VALUE(INBA_VERSION_PATCHLEVEL) \
+        INBA_VERSION_PRERELEASE_ID INBA_VERSION_BUILD_METADATA
+
+#endif
