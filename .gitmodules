@@ -2,3 +2,6 @@
 	path = docs/gh-pages
 	url = https://github.com/gyzkard/index-base
 	branch = gh-pages
+[submodule "external/gy-mpl"]
+	path = external/gy-mpl
+	url = https://github.com/gyzkard/gy-mpl

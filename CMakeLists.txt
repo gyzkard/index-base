@@ -23,7 +23,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 #message(DEBUG "main CMakeLists.txt: PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
 
 
-include(updateVersion)
+include(inbaUpdateVersion)
 
 
 project(inba
@@ -38,14 +38,19 @@ set(INBA_CPP_STD ${CMAKE_CXX_STANDARD} CACHE STRING "C++ Standard. Supported val
 #message(DEBUG "main CMakeLists.txt: CMAKE_CXX_STANDARD_REQUIRED: ${CMAKE_CXX_STANDARD_REQUIRED}")
 
 
+include(inbaDoFindGympl)
+
+
 include(CMakeDependentOption)
 include(GNUInstallDirs)
-include(CTest)
+if (is_standalone)
+	include(CTest)
 
-cmake_dependent_option(INBA_BUILD_DOCS "Build inba Docs" ON
-  "CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR" OFF)
-cmake_dependent_option(INBA_BUILD_TESTS "Build inba Tests" ON
-  "BUILD_TESTING;CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR" OFF)
+	cmake_dependent_option(INBA_BUILD_DOCS "Build inba Docs" ON
+	  "CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR" OFF)
+	cmake_dependent_option(INBA_BUILD_TESTS "Build inba Tests" ON
+	  "BUILD_TESTING;CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR" OFF)
+endif()
 
 add_library(${PROJECT_NAME} INTERFACE)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
@@ -70,7 +75,7 @@ install(DIRECTORY include/ DESTINATION include
 
 
 if(INBA_BUILD_DOCS)
-  include(doFindDoxygen)
+  include(inbaDoFindDoxygen)
   add_subdirectory(docs)
 endif()
 

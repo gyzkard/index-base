@@ -1,6 +1,5 @@
-#include "testing.hpp"
-
 #include <cassert>
+#include <gympl/testing.hpp>
 
 //#define INDEX_BASE_DISABLE_DEFINE_LITERALS
 //#define INDEX_BASE_DISABLE_DEFINE_USINGS
@@ -59,7 +58,7 @@ namespace
     //! [example4]
 }
 
-TEST_MAIN_START
+GYMPL_TEST_MAIN_START
 {
     example1();
     example2();
@@ -67,4 +66,4 @@ TEST_MAIN_START
     example4();
     return EXIT_SUCCESS;
 }
-TEST_MAIN_END
+GYMPL_TEST_MAIN_END

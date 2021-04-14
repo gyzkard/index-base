@@ -1,10 +1,10 @@
-#include "testing.hpp"
+#include <gympl/testing.hpp>
 
 //#define INDEX_BASE_DISABLE_DEFINE_LITERALS
 //#define INDEX_BASE_DISABLE_DEFINE_USINGS
 #include <inba/inba.hpp>
 
-#ifdef INBA_HAS_RANGES
+#ifdef GYMPL_HAS_RANGES
 
 #include "bi.hpp"
 
@@ -25,7 +25,7 @@ namespace
         std::array<Indexed_i1, 4> ai1;
         std::ranges::generate(ai0, [n = 0]() mutable { return Indexed_i0(n++); });
         std::ranges::generate(ai1, [n = 1]() mutable { return Indexed_i1(n++); });
-        INBA_REQUIRE(std::ranges::equal(ai0, ai1));
+        GYMPL_REQUIRE(std::ranges::equal(ai0, ai1));
         //! [built in types]
     }
 }
@@ -85,7 +85,7 @@ namespace
         std::array<Indexed_Bi1, 4> ai1;
         std::ranges::generate(ai0, [n = 0]() mutable { return Indexed_Bi0(n++); });
         std::ranges::generate(ai1, [n = 1]() mutable { return Indexed_Bi1(n++); });
-        INBA_REQUIRE(std::ranges::equal(ai0, ai1));
+        GYMPL_REQUIRE(std::ranges::equal(ai0, ai1));
         //! [base value class]
     }
 }
@@ -95,16 +95,16 @@ namespace
 {
     void runtime_tests()
     {
-#ifdef INBA_HAS_RANGES
+#ifdef GYMPL_HAS_RANGES
         basic_runtime_tests();
         extended_runtime_tests();
 #endif
     }
 }
 
-TEST_MAIN_START
+GYMPL_TEST_MAIN_START
 {
     runtime_tests();
     return EXIT_SUCCESS;
 }
-TEST_MAIN_END
+GYMPL_TEST_MAIN_END

@@ -1,7 +1,6 @@
-#include "outputCompilerInfo.hpp"
-#include "testing.hpp"
-
 #include <cassert>
+#include <gympl/outputCompilerInfo.hpp>
+#include <gympl/testing.hpp>
 #include <sstream>
 #include <string>
 
@@ -9,8 +8,8 @@
 //#define INDEX_BASE_DISABLE_DEFINE_USINGS
 #include <inba/inba.hpp>
 
-#define INBA_PRINT_CONFIG
-#include "outputConfiguration.hpp"
+#define GYMPL_PRINT_CONFIG
+#include <gympl/outputConfiguration.hpp>
 
 namespace
 {
@@ -107,10 +106,10 @@ namespace
     //! [example2]
 }
 
-TEST_MAIN_START
+GYMPL_TEST_MAIN_START
 {
     example1();
     example2();
     return EXIT_SUCCESS;
 }
-TEST_MAIN_END
+GYMPL_TEST_MAIN_END

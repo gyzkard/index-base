@@ -39,86 +39,86 @@ namespace inba
             {
                 return *this;
             }
-            constexpr Bi operator+(Bi const& o) const noexcept(INBA_NOEXCEPT_OP(Bi(i_ + o.i_)))
+            constexpr Bi operator+(Bi const& o) const noexcept(GYMPL_NOEXCEPT_OP(Bi(i_ + o.i_)))
             {
                 return Bi(i_ + o.i_);
             }
 
-            INBA_CONSTEXPR_11 Bi& operator+=(Bi const& o) noexcept(INBA_NOEXCEPT_OP(i_ += o.i_))
+            GYMPL_CONSTEXPR_11 Bi& operator+=(Bi const& o) noexcept(GYMPL_NOEXCEPT_OP(i_ += o.i_))
             {
                 i_ += o.i_;
                 return *this;
             }
-            INBA_CONSTEXPR_11 Bi& operator+=(value_type v) noexcept(INBA_NOEXCEPT_OP(i_ += v))
+            GYMPL_CONSTEXPR_11 Bi& operator+=(value_type v) noexcept(GYMPL_NOEXCEPT_OP(i_ += v))
             {
                 i_ += v;
                 return *this;
             }
 
-            constexpr Bi operator-() const noexcept(INBA_NOEXCEPT_OP(Bi(-i_)))
+            constexpr Bi operator-() const noexcept(GYMPL_NOEXCEPT_OP(Bi(-i_)))
             {
                 return Bi(-i_);
             }
-            constexpr diff_type operator-(Bi const& o) const noexcept(INBA_NOEXCEPT_OP(diff_type(i_ - o.i_)))
+            constexpr diff_type operator-(Bi const& o) const noexcept(GYMPL_NOEXCEPT_OP(diff_type(i_ - o.i_)))
             {
                 return i_ - o.i_;
             }
-            INBA_CONSTEXPR_11 Bi& operator-=(Bi const& o) noexcept(INBA_NOEXCEPT_OP(i_ -= o.i_))
+            GYMPL_CONSTEXPR_11 Bi& operator-=(Bi const& o) noexcept(GYMPL_NOEXCEPT_OP(i_ -= o.i_))
             {
                 i_ -= o.i_;
                 return *this;
             }
-            INBA_CONSTEXPR_11 Bi& operator-=(value_type v) noexcept(INBA_NOEXCEPT_OP(i_ -= v))
+            GYMPL_CONSTEXPR_11 Bi& operator-=(value_type v) noexcept(GYMPL_NOEXCEPT_OP(i_ -= v))
             {
                 i_ -= v;
                 return *this;
             }
-            constexpr Bi operator*(Bi const& o) const noexcept(INBA_NOEXCEPT_OP(Bi(i_* o.i_)))
+            constexpr Bi operator*(Bi const& o) const noexcept(GYMPL_NOEXCEPT_OP(Bi(i_* o.i_)))
             {
                 return Bi(i_ * o.i_);
             }
-            INBA_CONSTEXPR_11 Bi& operator*=(value_type i) noexcept(INBA_NOEXCEPT_OP(i_ *= i))
+            GYMPL_CONSTEXPR_11 Bi& operator*=(value_type i) noexcept(GYMPL_NOEXCEPT_OP(i_ *= i))
             {
                 i_ *= i;
                 return *this;
             }
-            INBA_CONSTEXPR_11 Bi& operator*=(Bi const& o) noexcept(INBA_NOEXCEPT_OP(i_ *= o.i_))
+            GYMPL_CONSTEXPR_11 Bi& operator*=(Bi const& o) noexcept(GYMPL_NOEXCEPT_OP(i_ *= o.i_))
             {
                 i_ *= o.i_;
                 return *this;
             }
-            constexpr Bi operator/(Bi const& o) const noexcept(INBA_NOEXCEPT_OP(Bi(i_ / o.i_)))
+            constexpr Bi operator/(Bi const& o) const noexcept(GYMPL_NOEXCEPT_OP(Bi(i_ / o.i_)))
             {
                 return Bi(i_ / o.i_);
             }
-            INBA_CONSTEXPR_11 Bi& operator/=(value_type i) noexcept(INBA_NOEXCEPT_OP(i_ /= i))
+            GYMPL_CONSTEXPR_11 Bi& operator/=(value_type i) noexcept(GYMPL_NOEXCEPT_OP(i_ /= i))
             {
                 i_ /= i;
                 return *this;
             }
-            INBA_CONSTEXPR_11 Bi& operator/=(Bi const& o) noexcept(INBA_NOEXCEPT_OP(i_ /= o.i_))
+            GYMPL_CONSTEXPR_11 Bi& operator/=(Bi const& o) noexcept(GYMPL_NOEXCEPT_OP(i_ /= o.i_))
             {
                 i_ /= o.i_;
                 return *this;
             }
 
-            INBA_CONSTEXPR_11 Bi& operator++() & noexcept(INBA_NOEXCEPT_OP(++i_))
+            GYMPL_CONSTEXPR_11 Bi& operator++() & noexcept(GYMPL_NOEXCEPT_OP(++i_))
             {
                 ++i_;
                 return *this;
             }
-            INBA_CONSTEXPR_11 Bi operator++(int) & noexcept(INBA_NOEXCEPT_OP(Bi(++(*this))))
+            GYMPL_CONSTEXPR_11 Bi operator++(int) & noexcept(GYMPL_NOEXCEPT_OP(Bi(++(*this))))
             {
                 Bi result(*this);
                 ++(*this);
                 return result;
             }
-            INBA_CONSTEXPR_11 Bi& operator--() & noexcept(INBA_NOEXCEPT_OP(--i_))
+            GYMPL_CONSTEXPR_11 Bi& operator--() & noexcept(GYMPL_NOEXCEPT_OP(--i_))
             {
                 --i_;
                 return *this;
             }
-            INBA_CONSTEXPR_11 Bi operator--(int) & noexcept(INBA_NOEXCEPT_OP(Bi(--(*this))))
+            GYMPL_CONSTEXPR_11 Bi operator--(int) & noexcept(GYMPL_NOEXCEPT_OP(Bi(--(*this))))
             {
                 Bi result(*this);
                 --(*this);
@@ -126,37 +126,37 @@ namespace inba
             }
         };
 
-        inline constexpr Bi operator+(Bi const& left, Bi::value_type right) noexcept(INBA_NOEXCEPT_OP(Bi(left.i_ + right)))
+        inline constexpr Bi operator+(Bi const& left, Bi::value_type right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left.i_ + right)))
         {
             return Bi(left.i_ + right);
         }
-        inline constexpr Bi operator+(Bi::value_type const& left, Bi right) noexcept(INBA_NOEXCEPT_OP(Bi(left + right.i_)))
+        inline constexpr Bi operator+(Bi::value_type const& left, Bi right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left + right.i_)))
         {
             return Bi(left + right.i_);
         }
-        inline constexpr Bi operator-(Bi const& left, Bi::value_type right) noexcept(INBA_NOEXCEPT_OP(Bi(left.i_ - right)))
+        inline constexpr Bi operator-(Bi const& left, Bi::value_type right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left.i_ - right)))
         {
             return Bi(left.i_ - right);
         }
-        inline constexpr Bi operator*(Bi const& left, Bi::value_type right) noexcept(INBA_NOEXCEPT_OP(Bi(left.i_* right)))
+        inline constexpr Bi operator*(Bi const& left, Bi::value_type right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left.i_* right)))
         {
             return Bi(left.i_ * right);
         }
-        inline constexpr Bi operator*(Bi::value_type const& left, Bi right) noexcept(INBA_NOEXCEPT_OP(Bi(left* right.i_)))
+        inline constexpr Bi operator*(Bi::value_type const& left, Bi right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left* right.i_)))
         {
             return Bi(left * right.i_);
         }
-        inline constexpr Bi operator/(Bi const& left, Bi::value_type right) noexcept(INBA_NOEXCEPT_OP(Bi(left.i_ / right)))
+        inline constexpr Bi operator/(Bi const& left, Bi::value_type right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left.i_ / right)))
         {
             return Bi(left.i_ / right);
         }
-        inline constexpr Bi operator/(Bi::value_type const& left, Bi right) noexcept(INBA_NOEXCEPT_OP(Bi(left / right.i_)))
+        inline constexpr Bi operator/(Bi::value_type const& left, Bi right) noexcept(GYMPL_NOEXCEPT_OP(Bi(left / right.i_)))
         {
             return Bi(left / right.i_);
         }
         //! [base value class]
 
-#ifdef INBA_HAS_CONCEPTS
+#ifdef GYMPL_HAS_CONCEPTS
         static_assert(inba::concepts::StronglyInDecrementable<Bi>);
         static_assert(inba::concepts::CanDoArithmetics<Bi>);
         static_assert(inba::concepts::IsArrayIndex<Bi>);
@@ -171,7 +171,7 @@ namespace inba
             return Bi{(int)i};
         }
 
-#ifdef INBA_HAS_CLASS_TYPE_NON_TYPE_TEMPLATE_PARAMS
+#ifdef GYMPL_HAS_CLASS_TYPE_NON_TYPE_TEMPLATE_PARAMS
         //! [user defined literals c++20]
         inline inba::Indexed<Bi, Bi{0}> operator"" _bi0(unsigned long long int i)
         {
@@ -205,7 +205,7 @@ namespace inba
         //! [typedefs pre c++20]
 #endif
 
-        static_assert(inba::is_IndexedBase_compatible<Indexed_Bi0>::value INBA_NTSA);
+        static_assert(inba::is_IndexedBase_compatible<Indexed_Bi0>::value GYMPL_NTSA);
 
     }
 }
